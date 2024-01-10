@@ -4,7 +4,7 @@ This repository contains an implementation of our EMNLP 2023 paper ["Z-FOLD: A F
 ## Usage
 You can reproduce the experiment using the script provided below.
 
--  Setup Enviroment
+- Setup Environment
 ```bash
 pip install -r requirements.txt
 ```
