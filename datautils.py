@@ -82,13 +82,13 @@ def get_ptb(tokenizer, model_name, nsamples, seed, seqlen, mode="train"):
 
 def get_c4(tokenizer, model_name, nsamples, seed, seqlen, mode="train"):
     if mode == "train":
-        traindata = load_dataset("allenai/c4", "allenai--c4", data_files={"train": "en/c4-train.00000-of-01024.json.gz"}, split="train")
+        traindata = load_dataset("allenai/c4", data_files={"train": "en/c4-train.00000-of-01024.json.gz"}, split="train")
         trainloader = c4_set_input_ids(tokenizer, traindata, seed, seqlen, nsamples)
         print("here")
         return trainloader, None
     else:
         valdata = load_dataset(
-            "allenai/c4", "allenai--c4", data_files={"validation": "en/c4-validation.00000-of-00008.json.gz"}, split="validation"
+            "allenai/c4", data_files={"validation": "en/c4-validation.00000-of-00008.json.gz"}, split="validation"
         )
         if "llama" in model_name or "bloom" in model_name:
             testloader = c4_set_input_ids(tokenizer, valdata, seed, seqlen, nsamples=256, mode="validation")
